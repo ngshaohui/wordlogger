@@ -1,0 +1,16 @@
+{
+  "name": "learn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "electron": "electron .",
+    "electron-build": "cd angular-electron && ng build --prod && cd .. && electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@angular/cli": "^1.5.5",
+    "electron": "1.7.9"
+  }
+}
