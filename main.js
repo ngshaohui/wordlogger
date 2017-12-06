@@ -6,7 +6,7 @@
 
 const { app, BrowserWindow } = require('electron');
 
-require('./storage/storage');
+require('./modules/moduleHandler');
 
 let win;
 function createWindow() {

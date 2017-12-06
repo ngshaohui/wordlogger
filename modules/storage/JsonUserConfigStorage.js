@@ -12,9 +12,12 @@
 'use strict';
 
 const fs = require('fs');
-const defaultUserConfigPath = './userConfig.json';
 
-const defaultDataStoragePath = "/Users/shaohui/Documents/data/data.json"
+// TODO
+// apparently user configs should be stored in app data folder instead
+// will implement in the future
+const defaultUserConfigPath = 'userConfig.json';
+const defaultDataStoragePath = "data.json"
 
 class JsonUserConfigStorage {
   constructor() {
@@ -22,11 +25,16 @@ class JsonUserConfigStorage {
     this.dataStoragePath = defaultDataStoragePath;
     //read config?
   }
-
+  
   getDatStoragePath() {
     return this.dataStoragePath;
   }
+  
+  getUserConfigPath() {
+    return this.dataStoragePath;
+  }
 
+  //TODO return promise
   //read data from config file
   //if file does not exist, create file
   readConfig() {
