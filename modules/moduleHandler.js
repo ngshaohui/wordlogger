@@ -3,13 +3,12 @@
 const electron = require('electron');
 const ipc = electron.ipcMain;
 
-import { Model } from './model/Model';
-import { Storage } from './storage/Storage';
+const Model = require('./model/Model');
+const Storage = require('./storage/Storage');
 
-const storage = new Storage();
-const model = new Model(storage);
+const storage = new Storage.Storage();
+const model = new Model.Model(storage);
 
 ipc.on('store-word', (event, obj) => {
-  //TODO should not be calling storage directly
-  model.add(obj);
+  model.add(obj)
 });

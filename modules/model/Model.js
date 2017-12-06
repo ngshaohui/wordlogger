@@ -1,20 +1,17 @@
 'use-strict';
 
-import { Storage } from './storage/Storage';
-
-const vocabList;
+//TODO this should be a class of its own
+var vocabList = [];
 
 class Model {
   constructor(storage) {
     this.storage = storage;
     //call storage to load
-    loadVocabListFromStorage();
-  }
-
-  loadVocabListFromStorage() {
     this.storage.loadFromFile()
     .then((res) => {
       vocabList = res;
+      console.log("vocab list is");
+      console.log(vocabList);
     })
     .catch((err) => {
       throw err;
@@ -35,3 +32,5 @@ class Model {
     });
   }
 }
+
+module.exports = { Model };

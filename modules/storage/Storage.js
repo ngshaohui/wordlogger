@@ -1,10 +1,10 @@
 'use strict';
 
-import { JsonDataStorage } from './JsonDataStorage';
-import { JsonUserConfigStorage } from './JsonUserConfigStorage';
+const JsonDataStorage = require('./JsonDataStorage');
+const JsonUserConfigStorage = require('./JsonUserConfigStorage');
 
-const jsonDataStorage = new JsonDataStorage();
-const jsonUserConfigStorage = new JsonUserConfigStorage();
+const jsonDataStorage = new JsonDataStorage.JsonDataStorage();
+const jsonUserConfigStorage = new JsonUserConfigStorage.JsonUserConfigStorage();
 
 class Storage {
   constructor() {
@@ -23,12 +23,12 @@ class Storage {
           //TODO emit failure event
           return reject(err);
         });
-    }
+    });
   }
 
   loadFromFile() {
     return new Promise((resolve, reject) => {
-      jsonDataStorage.loadFromFile(this.dataStoragePath)
+      jsonDataStorage.loadFromJsonFile(this.dataStoragePath)
         .then((res) => {
           //TODO emit success event
           return resolve(res);
@@ -37,7 +37,7 @@ class Storage {
           //TODO emit failure event
           return reject(err);
         });
-    }
+    });
   }
 
 }
