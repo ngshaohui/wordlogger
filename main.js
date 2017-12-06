@@ -4,7 +4,9 @@
 
 'use strict';
 
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow } = require('electron');
+
+require('./storage/storage');
 
 let win;
 function createWindow() {
@@ -18,7 +20,7 @@ function createWindow() {
   // win.loadURL(`file://${__dirname}/dist/index.html`) // production
   win.loadURL(`http://localhost:4200/`) //dev using ng serve
 
-  // win.webContents.openDevTools()
+  win.webContents.openDevTools()
 
   // Event when the window is closed.
   win.on('closed', () => {

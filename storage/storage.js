@@ -1,26 +1,11 @@
 'use strict';
 
-// import * as jsonDataStorage from './jsonDataStorage';
-// import { JsonUserConfigStorage } from './jsonUserConfigStorage';
+const electron = require('electron');
+const ipc = electron.ipcMain;
 
-class Storage {
+const fs = require('fs');
 
-  constructor() {
-    this.userConfig = new JsonUserConfigStorage();
-    this.dataStoragePath = userConfig.getDatStoragePath();
-    writeToFile();
-  }
-  // read user pref
-  // save user pref
-  // getSaveFilePath (should just hard code this for now)
-  // readSaveFile
-  // writeSaveFile
-  writeToFile() {
-    jsonDataStorage.writeToJsonFile(this.dataStoragePath, "success");
-  }
-
-  // handle model changed event
-  // (to be registered to the event handler)
-}
-
-module.exports = { Storage };
+ipc.on('test-msg', (event, obj) => {
+  console.log(obj);
+  console.log(typeof obj);
+});

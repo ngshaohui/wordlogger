@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
+import { CoreModule } from './modules/core/core.module';
 import { HomeModule } from './modules/home/home.module';
 
 @NgModule({
@@ -13,6 +14,7 @@ import { HomeModule } from './modules/home/home.module';
   imports: [
     BrowserModule,
     RouterModule,
+    CoreModule,
     HomeModule
   ],
   providers: [],

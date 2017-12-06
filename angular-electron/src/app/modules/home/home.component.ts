@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from '../core/storage/storage.service';
 
 @Component({
   selector: 'app-home',
@@ -7,18 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private storageService: StorageService
+  ) { }
 
   ngOnInit() {
   }
 
-  handleDrop(e) {
-    var files:File = e.dataTransfer.files;
-    Object.keys(files).forEach((key) => {
-      console.log(files[key]);
-    });
-
-    return false;
+  test() {
+    this.storageService.test();
   }
 
 }
