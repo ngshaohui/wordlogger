@@ -9,7 +9,7 @@ class Model {
     //call storage to load
     this.storage.loadFromFile()
     .then((res) => {
-      this.vocabList = res;
+      this.vocabList = JSON.parse(res);
     })
     .catch((err) => {
       throw err;
@@ -18,9 +18,6 @@ class Model {
   }
 
   add(obj) {
-    console.log("Test");
-    console.log(typeof this.vocabList);
-    console.log(this.vocabList);
     this.vocabList.push(obj);
     this.storage.writeToFile(this.vocabList)
     .then(() => {

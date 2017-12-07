@@ -12,7 +12,5 @@ const storage = new Storage.Storage();
 const model = new Model.Model(storage);
 
 ipc.on('store-vocab', (event, obj) => {
-  console.log("received");
-  console.log(obj);
   model.add(obj)
 });

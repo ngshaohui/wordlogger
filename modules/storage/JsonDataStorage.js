@@ -25,7 +25,7 @@ class JsonDataStorage {
   */
   writeToJsonFile(filePath, content) {
     return new Promise((resolve, reject) => {
-      fs.writeFile(filePath, content, (err) => {
+      fs.writeFile(filePath, JSON.stringify(content), (err) => {
         if (err) {
           return reject(err);
         } else {

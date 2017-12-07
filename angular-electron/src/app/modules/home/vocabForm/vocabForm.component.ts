@@ -74,6 +74,7 @@ export class VocabFormComponent implements OnInit {
     } as Vocab;
 
     this.storageService.storeVocab(vocab);
+    this.vocabForm.reset();
 
   }
 }
