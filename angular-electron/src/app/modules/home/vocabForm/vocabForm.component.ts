@@ -5,7 +5,8 @@ import { Vocab } from '../../core/interface/vocab.interface';
 
 @Component({
   selector: 'vocab-form',
-  templateUrl: 'vocabForm.component.html'
+  templateUrl: 'vocabForm.component.html',
+  styleUrls: ['./vocabForm.component.scss']
 })
 export class VocabFormComponent implements OnInit {
 
@@ -33,7 +34,7 @@ export class VocabFormComponent implements OnInit {
 
   private initSentenceFields() {
     return this.formBuilder.group({
-      sentenceText: ['', Validators.required],
+      sentenceText: [''],
       sentenceTransliteration: [''],
       sentenceTranslation: [''],
     });

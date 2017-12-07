@@ -1,71 +1,69 @@
-<form [formGroup]="vocabForm" novalidate (ngSubmit)="save(vocabForm)">
+<div class="form-container">
+  <form [formGroup]="vocabForm" novalidate (ngSubmit)="save(vocabForm)">
 
-  <!-- text -->
-  <div class="form-group">
-    <label>Text</label>
-    <input type="text" formControlName="text">
-    <!--display error message if text is not valid-->
-    <small *ngIf="!vocabForm.controls.text.valid" class="text-danger">
-      Text is required
-    </small>
-  </div>
-
-  <!-- transliteration -->
-  <div class="form-group">
-    <label>Transliteration</label>
-    <input type="text" formControlName="transliteration">
-  </div>
-
-  <!-- translation -->
-  <div class="form-group">
-    <label>Translation</label>
-    <input type="text" formControlName="translation">
-    <!--display error message if prompt is not valid-->
-    <small *ngIf="!vocabForm.controls.translation.valid" class="text-danger">
-      Translation is required
-    </small>
-  </div>
-
-  <!-- list of sentences -->
-  <div formArrayName="sentences">
-    <div *ngFor="let sentence of vocabForm.controls.sentences.controls; let i=index">
-
-      <!-- sentence header, show remove button when more than one sentence available -->
-      <div>
-        <span>Sentence {{i + 1}}</span>
-        <span *ngIf="vocabForm.controls.sentences.controls.length > 1" (click)="removeSentence(i)">
-        </span>
-      </div>
-
-      <!-- Angular assigns array index as group name by default 0, 1, 2, ... -->
-      <div [formGroupName]="i">
-
-        <!--text-->
-        <div>
-          <label>Text</label>
-          <input type="text" formControlName="sentenceText">
-          <!--display error message if street is not valid-->
-          <small [hidden]="vocabForm.controls.sentences.controls[i].controls.sentenceText.valid">
-            Text is required
-          </small>
-        </div>
-
-        <!--transliteration-->
-        <div>
-          <label>Transliteration</label>
-          <input type="text" formControlName="sentenceTransliteration">
-        </div>
-
-        <!--translation-->
-        <div>
-          <label>Translation</label>
-          <input type="text" formControlName="sentenceTranslation">
-        </div>
-
-      </div>
-
+    <!-- text -->
+    <div class="form-group">
+      <label>Text</label>
+      <input type="text" class="form-control" formControlName="text">
     </div>
-  </div>
 
-  <button type="submit" [disabled]="!vocabForm.valid">Submit</button>
-</form>
+    <!-- transliteration -->
+    <div class="form-group">
+      <label>Transliteration</label>
+      <input type="text" class="form-control" formControlName="transliteration">
+    </div>
+
+    <!-- translation -->
+    <div class="form-group">
+      <label>Translation</label>
+      <input type="text" class="form-control" formControlName="translation">
+    </div>
+
+    <!-- list of sentences -->
+    <div formArrayName="sentences">
+      <div *ngFor="let sentence of vocabForm.controls.sentences.controls; let i=index">
+
+        <!-- sentence header, show remove button when more than one sentence available -->
+        <div>
+          <span>Sentence {{i + 1}}</span>
+          <span *ngIf="vocabForm.controls.sentences.controls.length > 1" (click)="removeSentence(i)">
+          </span>
+        </div>
+
+        <!-- Angular assigns array index as group name by default 0, 1, 2, ... -->
+        <div [formGroupName]="i">
+
+          <!--text-->
+          <div>
+            <label>Text</label>
+            <input type="text" class="form-control" formControlName="sentenceText">
+          </div>
+
+          <!--transliteration-->
+          <div>
+            <label>Transliteration</label>
+            <input type="text" class="form-control" formControlName="sentenceTransliteration">
+          </div>
+
+          <!--translation-->
+          <div>
+            <label>Translation</label>
+            <input type="text" class="form-control" formControlName="sentenceTranslation">
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="margin-20">
+      <button (click)="addSentence()" type="button" class="btn btn-link add-sentence-link">
+        Add another sentence +
+      </button>
+    </div>
+
+    <div class="solo-btn-container">
+      <button class="btn btn-primary" type="submit" [disabled]="!vocabForm.valid">Submit</button>
+    </div>
+  </form>
+</div>

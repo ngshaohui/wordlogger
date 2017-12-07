@@ -1,0 +1,14 @@
+/* Prevent form from touching the application borders */
+.form-container {
+  padding: 1rem;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  border-width: .2rem;
+}
+
+/* To keep the link text aligned */
+.add-sentence-link {
+  padding-left: 0;
+  padding-right: 0;
+}

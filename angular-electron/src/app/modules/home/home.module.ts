@@ -10,7 +10,6 @@ import { HomeRouter } from './router';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
     ReactiveFormsModule,
     HomeRouter,
   ],
