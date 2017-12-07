@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Vocab } from '../../core/interface/vocab.interface';
+import { StorageService } from '../../core/storage/storage.service';
+
+import { Sentence, Vocab } from '../../core/interface/vocab.interface';
 
 @Component({
   selector: 'vocab-form',
@@ -13,7 +15,8 @@ export class VocabFormComponent implements OnInit {
   vocabForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private storageService: StorageService
   ) {
   }
 
@@ -34,9 +37,9 @@ export class VocabFormComponent implements OnInit {
 
   private initSentenceFields() {
     return this.formBuilder.group({
-      sentenceText: [''],
-      sentenceTransliteration: [''],
-      sentenceTranslation: [''],
+      text: [''],
+      transliteration: [''],
+      translation: [''],
     });
   }
 
@@ -50,7 +53,27 @@ export class VocabFormComponent implements OnInit {
     control.removeAt(i);
   }
 
-  save(model: Vocab) {
-    console.log(model);
+  save(form: FormGroup) {
+    let formVocabBasic = form.value;
+    let formVocabSentences = form.value.sentences;
+    let sentences = [];
+
+    for (let sentence of formVocabSentences) {
+      sentences.push({
+        text: sentence.text,
+        transliteration: sentence.transliteration,
+        translation: sentence.translation
+      } as Sentence);
+    }
+
+    let vocab = {
+      text: formVocabBasic.text,
+      transliteration: formVocabBasic.transliteration,
+      translation: formVocabBasic.translation,
+      sentences: sentences
+    } as Vocab;
+
+    this.storageService.storeVocab(vocab);
+
   }
 }

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+import { Vocab } from '../interface/vocab.interface';
+
 // Quick Fix to workaround global conflict of require
 const electron = (<any>window).require("electron");
 
@@ -8,9 +10,9 @@ export class StorageService {
 
   constructor() { }
 
-  test(): void {
+  storeVocab(vocab: Vocab): void {
     //able to send the object back directly
-    electron.ipcRenderer.send('test-msg', {'test': 'blah'});
+    electron.ipcRenderer.send('store-vocab', vocab);
   }
 
 }

@@ -36,19 +36,19 @@
           <!--text-->
           <div>
             <label>Text</label>
-            <input type="text" class="form-control" formControlName="sentenceText">
+            <input type="text" class="form-control" formControlName="text">
           </div>
 
           <!--transliteration-->
           <div>
             <label>Transliteration</label>
-            <input type="text" class="form-control" formControlName="sentenceTransliteration">
+            <input type="text" class="form-control" formControlName="transliteration">
           </div>
 
           <!--translation-->
           <div>
             <label>Translation</label>
-            <input type="text" class="form-control" formControlName="sentenceTranslation">
+            <input type="text" class="form-control" formControlName="translation">
           </div>
 
         </div>
@@ -56,11 +56,9 @@
       </div>
     </div>
 
-    <div class="margin-20">
-      <button (click)="addSentence()" type="button" class="btn btn-link add-sentence-link">
-        Add another sentence +
-      </button>
-    </div>
+    <button (click)="addSentence()" type="button" class="btn btn-link add-sentence-link">
+      Add another sentence +
+    </button>
 
     <div class="solo-btn-container">
       <button class="btn btn-primary" type="submit" [disabled]="!vocabForm.valid">Submit</button>

@@ -1,3 +1,5 @@
+// TODO should ideally make an ipc handler
+
 'use-strict';
 
 const electron = require('electron');
@@ -9,6 +11,8 @@ const Storage = require('./storage/Storage');
 const storage = new Storage.Storage();
 const model = new Model.Model(storage);
 
-ipc.on('store-word', (event, obj) => {
+ipc.on('store-vocab', (event, obj) => {
+  console.log("received");
+  console.log(obj);
   model.add(obj)
 });
