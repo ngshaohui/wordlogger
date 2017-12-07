@@ -10,8 +10,6 @@ class Model {
     this.storage.loadFromFile()
     .then((res) => {
       vocabList = res;
-      console.log("vocab list is");
-      console.log(vocabList);
     })
     .catch((err) => {
       throw err;
@@ -24,7 +22,6 @@ class Model {
     this.storage.writeToFile(obj)
     .then(() => {
       //TODO emit success event
-      console.log("successfully added to save file"); //temporary TODO remove this
     })
     .catch((err) => {
       throw err;

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 // Quick Fix to workaround global conflict of require
-// const electron = (<any>window).require("electron");
+const electron = (<any>window).require("electron");
 
 @Injectable()
 export class StorageService {
@@ -10,7 +10,7 @@ export class StorageService {
 
   test(): void {
     //able to send the object back directly
-    // electron.ipcRenderer.send('test-msg', {'test': 'blah'});
+    electron.ipcRenderer.send('test-msg', {'test': 'blah'});
   }
 
 }
