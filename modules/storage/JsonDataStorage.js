@@ -12,7 +12,7 @@ var JsonDataStorage = /** @class */ (function () {
     */
     JsonDataStorage.prototype.writeToJsonFile = function (filePath, content) {
         return new Promise(function (resolve, reject) {
-            fs_1.writeFile(filePath, JSON.stringify(content), function (err) {
+            fs_1.writeFile(filePath, content, function (err) {
                 if (err) {
                     return reject(err);
                 }

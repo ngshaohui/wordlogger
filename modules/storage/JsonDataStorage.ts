@@ -12,7 +12,7 @@ export class JsonDataStorage {
   */
   writeToJsonFile(filePath: string, content: string): Promise<any> {
     return new Promise((resolve, reject) => {
-      writeFile(filePath, JSON.stringify(content), (err: any) => {
+      writeFile(filePath, content, (err: any) => {
         if (err) {
           return reject(err);
         } else {

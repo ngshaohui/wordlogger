@@ -10,5 +10,5 @@ let storage = new Storage.Storage()
 let model = new Model.Model(storage)
 
 ipc.on('store-vocab', (event, card) => {
-  this.model.add(card)
+  model.add(card)
 })
