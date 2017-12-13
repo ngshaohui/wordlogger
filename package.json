@@ -5,14 +5,18 @@
   "main": "main.js",
   "scripts": {
     "electron": "electron .",
-    "electron-build": "cd angular-electron && ng build --prod && cd .. && electron ."
+    "electron-build": "cd angular-electron && ng build --prod && cd .. && electron .",
+    "start": "node ./dist/bundle.js",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@angular/cli": "^1.5.5",
-    "electron": "1.7.9",
-    "ts-loader": "^3.2.0",
-    "typescript": "^2.6.2"
+    "@angular/cli": "1.5.5",
+    "ts-loader": "3.2.0",
+    "typescript": "2.6.2"
+  },
+  "dependencies": {
+    "electron": "1.7.9"
   }
 }

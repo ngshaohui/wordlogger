@@ -1,16 +1,14 @@
 // TODO should ideally make an ipc handler
 
-'use-strict';
-
 const electron = require('electron');
 const ipc = electron.ipcMain;
 
-const Model = require('./model/Model');
-const Storage = require('./storage/Storage');
+const Storage = require('./storage/Storage')
+const Model = require('./model/Model')
 
-const storage = new Storage.Storage();
-const model = new Model.Model(storage);
+let storage = new Storage.Storage()
+let model = new Model.Model(storage)
 
-ipc.on('store-vocab', (event, obj) => {
-  model.add(obj)
-});
+ipc.on('store-vocab', (event, card) => {
+  this.model.add(card)
+})

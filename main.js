@@ -2,13 +2,11 @@
 
 // Entrypoint for Electron
 
-'use strict';
+const { app, BrowserWindow } = require('electron')
 
-const { app, BrowserWindow } = require('electron');
+require('./modules/moduleHandler')
 
-require('./modules/moduleHandler');
-
-let win;
+let win
 function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({

@@ -1,13 +1,16 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: './src/modules/moduleHandler.js',
   module: {
     rules: [
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
-        exclude: /node_modules/
+        exclude: [
+          /node_modules/,
+          /angular-electron/
+        ]
       }
     ]
   },
@@ -15,8 +18,8 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js']
   },
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: 'moduleHandler.js',
+    path: path.resolve(__dirname, '')
   },
   //workaround
   //suppress can't resolve fs error
