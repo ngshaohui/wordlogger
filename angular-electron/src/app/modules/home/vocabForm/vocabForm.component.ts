@@ -43,8 +43,13 @@ export class VocabFormComponent implements OnInit {
     });
   }
 
+
+  /*
+  adapted from
+  https://github.com/angular/angular-cli/issues/6099#issuecomment-359341222
+  */
   getControls(formGroup: FormGroup, key: string) {
-    return (<FormArray>formGroup.controls[key]).controls;
+    return (<FormArray>formGroup.get(key)).controls;
   }
 
   addSentence() {
@@ -53,7 +58,6 @@ export class VocabFormComponent implements OnInit {
   }
 
   removeSentence(i: number) {
-    console.log('sentence removed');
     const control = <FormArray>this.vocabForm.controls['sentences'];
     control.removeAt(i);
   }
