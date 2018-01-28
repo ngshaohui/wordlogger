@@ -6,7 +6,7 @@ import { StorageService } from '../../core/storage/storage.service';
 import { Sentence, Vocab } from '../../core/interface/vocab.interface';
 
 @Component({
-  selector: 'vocab-form',
+  selector: 'app-vocab-form',
   templateUrl: 'vocabForm.component.html',
   styleUrls: ['./vocabForm.component.scss']
 })
@@ -43,22 +43,27 @@ export class VocabFormComponent implements OnInit {
     });
   }
 
+  getControls(formGroup: FormGroup, key: string) {
+    return (<FormArray>formGroup.controls[key]).controls;
+  }
+
   addSentence() {
     const control = <FormArray>this.vocabForm.controls['sentences'];
     control.push(this.initSentenceFields());
   }
 
   removeSentence(i: number) {
+    console.log('sentence removed');
     const control = <FormArray>this.vocabForm.controls['sentences'];
     control.removeAt(i);
   }
 
   save(form: FormGroup) {
-    let formVocabBasic = form.value;
-    let formVocabSentences = form.value.sentences;
-    let sentences = [];
+    const formVocabBasic = form.value;
+    const formVocabSentences = form.value.sentences;
+    const sentences = [];
 
-    for (let sentence of formVocabSentences) {
+    for (const sentence of formVocabSentences) {
       sentences.push({
         text: sentence.text,
         transliteration: sentence.transliteration,
@@ -66,7 +71,7 @@ export class VocabFormComponent implements OnInit {
       } as Sentence);
     }
 
-    let vocab = {
+    const vocab = {
       text: formVocabBasic.text,
       transliteration: formVocabBasic.transliteration,
       translation: formVocabBasic.translation,

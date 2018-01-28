@@ -1,1 +1,18 @@
-[{"cue":"行く","transliteration":"[いく]","response":"go","sentences":[{"text":"日曜日は図書館に行きます。","transliteration":"にちようび は としょかん に いきます。","translation":"I go to the library on Sundays."},{"text":"私は夏休みにプールに行った。","transliteration":"わたし は なつやすみ に プール に いった。","translation":"I went to the pool during summer vacation."}]},{"text":"私は絵を見るのが好きです。","transliteration":"わたし は え を みる の が すき です。","translation":"I like looking at pictures."},{"sentences":[{"text":"","translation":"","transliteration":""}],"text":"1","translation":"3","transliteration":"2"}]
+[{
+    "cue": "行く",
+    "transliteration": "[いく]",
+    "response": "go",
+    "sentences": [{
+        "text": "日曜日は図書館に行きます。",
+        "transliteration": "にちようび は としょかん に いきます。",
+        "translation": "I go to the library on Sundays."
+    }, {
+        "text": "私は夏休みにプールに行った。",
+        "transliteration": "わたし は なつやすみ に プール に いった。",
+        "translation": "I went to the pool during summer vacation."
+    }]
+}, {
+    "text": "私は絵を見るのが好きです。",
+    "transliteration": "わたし は え を みる の が すき です。",
+    "translation": "I like looking at pictures."
+}]

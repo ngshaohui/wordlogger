@@ -21,16 +21,19 @@
 
     <!-- list of sentences -->
     <div formArrayName="sentences">
-      <div *ngFor="let sentence of vocabForm.controls.sentences.controls; let i=index">
+      <div *ngFor="let sentence of getControls(vocabForm, 'sentences'); let i=index">
+
+        <hr>
 
         <!-- sentence header, show remove button when more than one sentence available -->
         <div>
-          <span>Sentence {{i + 1}}</span>
-          <span *ngIf="vocabForm.controls.sentences.controls.length > 1" (click)="removeSentence(i)">
-          </span>
+          <h5 class="inline-header">Sentence</h5>
+          <button *ngIf="getControls(vocabForm, 'sentences').length > 1" (click)="removeSentence(i)" type="button" class="btn btn-link remove-sentence-btn">
+            remove
+          </button>
         </div>
 
-        <!-- Angular assigns array index as group name by default 0, 1, 2, ... -->
+        <!-- angular assigns array index as group name by default 0, 1, 2, ... -->
         <div [formGroupName]="i">
 
           <!--text-->
@@ -56,7 +59,7 @@
       </div>
     </div>
 
-    <button (click)="addSentence()" type="button" class="btn btn-link add-sentence-link">
+    <button (click)="addSentence()" type="button" class="btn btn-link add-sentence-btn">
       Add another sentence +
     </button>
 
