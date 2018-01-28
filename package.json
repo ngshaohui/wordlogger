@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "electron": "electron .",
-    "electron-build": "cd angular-electron && ng build --prod && cd .. && electron .",
+    "electron-build": "cd angular-electron && ng build && cd .. && electron .",
     "start": "node ./dist/bundle.js",
     "build": "webpack"
   },
