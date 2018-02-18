@@ -2,13 +2,20 @@
 
 For storing words with sentence examples
 
-### How to use
+### Setting up
+
+#### Dev
+1. run `npm install` in both root and angular-electron
+2. run `ng serve` in angular-electron folder
+3. start the app by running `npm run electron` in the main folder
+
+#### Production
 1. run `npm install` in both root and angular-electron
 2. uncomment line 22 and comment line 23 of `main.js`
-3. start the app with `npm run electron`
+3. start the app by running `npm run electron` in the main folder
 
 ### Issues
-- unable to build angular using --prod flag due to unthrown errors, will revisit upon angular-cli update
+- unable to build angular using --prod flag due to unthrown errors, will revisit upon angular-cli update (observed in 1.5.5)
 
 ### TODO
 - add language selection
